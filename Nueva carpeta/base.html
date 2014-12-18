@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Curso de django. | {% block title %}Inicio{% endblock %}</title>
+</head>
+<body>
+	<div class="header">
+		{% if user.is_authenticated %}
+			<p>Bienvenido, <b>{{ user.username }}</b> | <a href="{% url "logout" %}">Log out</a></p>
+		{% else %}
+			<p>Bienvenido, Por favor <a href="{% url "login" %}">Log in</a></p>
+		{% endif %}
+		<h1>Curso de Django. Videotutoriales.com</h1>
+	</div>
+	<div class="content">
+		{% block content %}{% endblock %}
+	</div>
+	<div class="navigation">
+		<p><a href="{% url "homepage" %}">Inicio</a> | <a href="{% url "preguntas" %}">Preguntas</a></p>
+	</div>
+</body>
+</html>
